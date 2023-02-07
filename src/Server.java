@@ -4,15 +4,22 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.InputMismatchException;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /** Server class
  *
- * @author Kerly Titus
+ * 1 thread
+ *
+ * The Server class reads all the accounts from a file (account.txt) and saves
+ * them in an array (account[]). An account is implemented by the Accounts class.
+ * Using the transferrIn() method of Network class the server retrieves the
+ * transactions from the network input buffer and performs the operations
+ * (withdraw, deposit, query) on the specific accounts. It yields the cpu in case the
+ * buffer is empty.
+ * Each updated transaction is transmitted to the network output buffer using the
+ * transferOut( ) method of Network class and the server yields the cpu in case the
+ * buffer is full
+ *
+ * @author Tariq Benmouh
  */
 
 public class Server {
