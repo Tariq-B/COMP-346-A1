@@ -194,7 +194,7 @@ public class Client extends Thread {
      */
      public String toString() 
      {
-    	 return ("\n client IP " + objNetwork.getClientIP() + " Connection status" + objNetwork.getClientConnectionStatus() + "Number of transactions " + getNumberOfTransactions());
+    	 return ("\n The client IP is " + objNetwork.getClientIP() + " , the connection status is " + objNetwork.getClientConnectionStatus() + ", and the number of transactions : " + getNumberOfTransactions());
      }
     
     /** Code for the run method

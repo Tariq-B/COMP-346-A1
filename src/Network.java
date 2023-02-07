@@ -531,7 +531,7 @@ public class Network extends Thread{
       */
 	    public String toString() 
 	    {
-	        return ("\n Network status " + getNetworkStatus() + "Input buffer " + getInBufferStatus() + "Output buffer " + getOutBufferStatus());
+	        return ("\n The network status is " + getNetworkStatus() + ", the input buffer is " + getInBufferStatus() + " and the output buffer " + getOutBufferStatus());
 	    }
     
      /***********************************************************************************************************************************************
