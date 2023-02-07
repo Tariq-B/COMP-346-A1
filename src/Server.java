@@ -6,23 +6,10 @@ import java.util.InputMismatchException;
 
 
 /** Server class
- *
- * 1 thread
- *
- * The Server class reads all the accounts from a file (account.txt) and saves
- * them in an array (account[]). An account is implemented by the Accounts class.
- * Using the transferrIn() method of Network class the server retrieves the
- * transactions from the network input buffer and performs the operations
- * (withdraw, deposit, query) on the specific accounts. It yields the cpu in case the
- * buffer is empty.
- * Each updated transaction is transmitted to the network output buffer using the
- * transferOut( ) method of Network class and the server yields the cpu in case the
- * buffer is full
- *
  * @author Tariq Benmouh
  */
 
-public class Server {
+public class Server extends Thread{
   
 	int numberOfTransactions;         /* Number of transactions handled by the server */
 	int numberOfAccounts;             /* Number of accounts stored in the server */
@@ -300,7 +287,7 @@ public class Server {
      */
      public String toString() 
      {	
-    	 return ("\n server IP " + objNetwork.getServerIP() + "connection status " + objNetwork.getServerConnectionStatus() + "Number of accounts " + getNumberOfAccounts());
+    	 return ("\n The server IP is" + objNetwork.getServerIP() + ", the connection status is " + objNetwork.getServerConnectionStatus() + "and the number of accounts is " + getNumberOfAccounts());
      }
      
      /* *********************************************************************************************************************************************
