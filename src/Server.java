@@ -33,7 +33,7 @@ public class Server extends Thread{
       transaction = new Transactions();
       account = new Accounts[maxNbAccounts];
       objNetwork = new Network("server");
-      System.out.println("\n Inializing the Accounts database ...");
+      System.out.println("\n Initializing the Accounts database ...");
       initializeAccounts( );
       System.out.println("\n Connecting server to network ...");
       if (!(objNetwork.connect(objNetwork.getServerIP())))
@@ -304,10 +304,14 @@ public class Server extends Thread{
     {   Transactions trans = new Transactions();
     	long serverStartTime, serverEndTime;
 
+        serverStartTime = System.currentTimeMillis();
+
     	System.out.println("\n DEBUG : Server.run() - starting server thread " + objNetwork.getServerConnectionStatus());
     	
     	/* Implement the code for the run method */
-        
+
+        serverEndTime = System.currentTimeMillis();
+
         System.out.println("\n Terminating server thread - " + " Running time " + (serverEndTime - serverStartTime) + " milliseconds");
            
     }
