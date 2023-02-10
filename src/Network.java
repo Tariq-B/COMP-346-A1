@@ -533,10 +533,6 @@ public class Network extends Thread{
 	    {
 	        return ("\n The network status is " + getNetworkStatus() + ", the input buffer is " + getInBufferStatus() + " and the output buffer " + getOutBufferStatus());
 	    }
-    
-     /***********************************************************************************************************************************************
-      * TODO : implement the method Run() to execute the server thread				 																*
-      * *********************************************************************************************************************************************/
 	     
     /**
      *  Code for the run method
@@ -550,6 +546,9 @@ public class Network extends Thread{
     	
     	while (true)
     	{
+            /***********************************************************************************************************************************************
+             * TODO : implement the method Run() to execute the server thread				 																*
+             * *********************************************************************************************************************************************/
 		/* Implement here the code for the run method ... */
     	}    
     }

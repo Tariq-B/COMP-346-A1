@@ -290,16 +290,16 @@ public class Server extends Thread{
     	 return ("\n The server IP is" + objNetwork.getServerIP() + ", the connection status is " + objNetwork.getServerConnectionStatus() + "and the number of accounts is " + getNumberOfAccounts());
      }
      
-     /* *********************************************************************************************************************************************
-      * TODO : implement the method Run() to execute the server thread				 																*
-      * *********************************************************************************************************************************************/
-     
     /**
      * Code for the run method
      * 
      * @return 
      * @param
      */
+
+    /* *********************************************************************************************************************************************
+     * TODO : implement the method Run() to execute the server thread				 																*
+     * *********************************************************************************************************************************************/
     public void run()
     {   Transactions trans = new Transactions();
     	long serverStartTime, serverEndTime;

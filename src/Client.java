@@ -206,7 +206,11 @@ public class Client extends Thread {
     {   
     	Transactions transact = new Transactions();
     	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
-    
+
+        /***********************************************************************************************************************************************
+         * TODO : implement the method Run() to execute the client thread				 																*
+         * *********************************************************************************************************************************************/
+
     	/* Implement here the code for the run method ... */
     }
 }
