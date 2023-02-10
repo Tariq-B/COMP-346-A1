@@ -209,11 +209,25 @@ public class Client extends Thread {
 
         // if send or if receive
 
-        if (this.clientOperation.equals("receiving"))
-        {}
+        while (this.clientOperation.equals("receiving"))
+        {
+            receiveClientStartTime = System.currentTimeMillis();
+
+            receiveClientEndTime = System.currentTimeMillis();
+
+            System.out.println("Terminating client receiving thread - Running time " + (receiveClientEndTime - receiveClientStartTime) + " milliseconds");
+
+        }
 
         if (this.clientOperation.equals("sending"))
-        {}
+        {
+            sendClientStartTime = System.currentTimeMillis();
+
+            sendClientEndTime = System.currentTimeMillis();
+
+            System.out.println("Terminating client receiving thread - Running time " + (sendClientEndTime - sendClientStartTime) + " milliseconds");
+
+        }
 
             /***********************************************************************************************************************************************
              * TODO : implement the method Run() to execute the client thread				 																*
