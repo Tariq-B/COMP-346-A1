@@ -106,7 +106,7 @@ public class Client extends Thread {
         
         try
         {
-        	inputStream = new Scanner(new FileInputStream("transaction.txt"));
+        	inputStream = new Scanner(new FileInputStream("/home/tb/Documents/COMP-346-PA1/src/transaction.txt"));
         }
         catch(FileNotFoundException e)
         {
@@ -209,13 +209,15 @@ public class Client extends Thread {
 
         // if send or if receive
 
-        while (this.clientOperation.equals("receiving"))
+        if (this.clientOperation.equals("receiving"))
         {
             receiveClientStartTime = System.currentTimeMillis();
 
+            //something here probably
+
             receiveClientEndTime = System.currentTimeMillis();
 
-            System.out.println("Terminating client receiving thread - Running time " + (receiveClientEndTime - receiveClientStartTime) + " milliseconds");
+            System.out.println("\n Terminating client receiving thread - Running time " + (receiveClientEndTime - receiveClientStartTime) + " milliseconds");
 
         }
 
@@ -223,9 +225,11 @@ public class Client extends Thread {
         {
             sendClientStartTime = System.currentTimeMillis();
 
+            //something here probably
+
             sendClientEndTime = System.currentTimeMillis();
 
-            System.out.println("Terminating client receiving thread - Running time " + (sendClientEndTime - sendClientStartTime) + " milliseconds");
+            System.out.println("\n Terminating client sending thread - Running time " + (sendClientEndTime - sendClientStartTime) + " milliseconds");
 
         }
 
