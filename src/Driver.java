@@ -25,5 +25,12 @@ public class Driver {
         Client client2 = new Client("receiving");
         client2.start();
         /* Complete here the code for the main method ...*/
+
+        // to not be zombie threads
+
+        //objServer.join();
+        //client1.join();
+        //client2.join();
+        //objNetwork.join();
     }
 }

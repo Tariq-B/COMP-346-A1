@@ -550,12 +550,14 @@ public class Network extends Thread{
              * TODO : implement the method Run() to execute the server thread
              * *********************************************************************************************************************************************/
 
+            //send and receive incoming packets as the transaction
+
+
             Network.yield();
 
             if ((disconnect(getClientIP())) && disconnect(getServerIP())) {
                 break;
             }
-		/* Implement here the code for the run method ... */
-    	}    
+    	}
     }
 }
