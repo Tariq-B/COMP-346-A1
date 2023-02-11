@@ -547,8 +547,14 @@ public class Network extends Thread{
     	while (true)
     	{
             /***********************************************************************************************************************************************
-             * TODO : implement the method Run() to execute the server thread				 																*
+             * TODO : implement the method Run() to execute the server thread
              * *********************************************************************************************************************************************/
+
+            Network.yield();
+
+            if ((disconnect(getClientIP())) && disconnect(getServerIP())) {
+                break;
+            }
 		/* Implement here the code for the run method ... */
     	}    
     }

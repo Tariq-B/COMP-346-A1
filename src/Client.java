@@ -152,6 +152,10 @@ public class Client extends Thread {
          while (i < getNumberOfTransactions())
          {  
             // while( objNetwork.getInBufferStatus().equals("full") );     /* Alternatively, busy-wait until the network input buffer is available */
+
+             /***********************************************************************************************************************************************
+              * TODO : YIELD WILL BE HERE^^^
+              * *********************************************************************************************************************************************/
                                              	
             transaction[i].setTransactionStatus("sent");   /* Set current transaction status */
            
@@ -176,6 +180,10 @@ public class Client extends Thread {
          while (i < getNumberOfTransactions())
          {     
         	 // while( objNetwork.getOutBufferStatus().equals("empty"));  	/* Alternatively, busy-wait until the network output buffer is available */
+
+             /***********************************************************************************************************************************************
+              * TODO : YIELD WILL BE HERE^^^
+              * *********************************************************************************************************************************************/
                                                                         	
             objNetwork.receive(transact);                               	/* Receive updated transaction from the network buffer */
             
@@ -213,7 +221,7 @@ public class Client extends Thread {
         {
             receiveClientStartTime = System.currentTimeMillis();
 
-            //something here probably
+            //sendtransactionmethod
 
             receiveClientEndTime = System.currentTimeMillis();
 
@@ -225,7 +233,7 @@ public class Client extends Thread {
         {
             sendClientStartTime = System.currentTimeMillis();
 
-            //something here probably
+            //receivetransaction method
 
             sendClientEndTime = System.currentTimeMillis();
 
