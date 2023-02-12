@@ -551,15 +551,15 @@ public class Network extends Thread{
              * **********************************************************************************************************************************************/
             if (connect(clientIP)) {
                 for (int i=0; i < maxNbPackets; i++){
-                    receive(outGoingPacket[i]);
-                    send(inComingPacket[i]);
+                    receive(inComingPacket[i]);
+                    send(outGoingPacket[i]);
                 }
             }
 
             if (connect(serverIP)) {
                 for (int i=0; i < maxNbPackets; i++){
-                    transferOut(outGoingPacket[i]);
-                    transferIn(inComingPacket[i]);
+                    transferOut(inComingPacket[i]);
+                    transferIn(outGoingPacket[i]);
                 }
 
             }
