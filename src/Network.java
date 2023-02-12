@@ -550,6 +550,12 @@ public class Network extends Thread{
              * TODO : implement the method Run() to execute the server thread
              * *********************************************************************************************************************************************/
 
+            for (int i=0; i < maxNbPackets; i++){
+                receive(inComingPacket[i]);
+                send(outGoingPacket[i]);
+            }
+
+
             //send and receive incoming packets as the transaction
 
 

@@ -151,7 +151,9 @@ public class Client extends Thread {
          
          while (i < getNumberOfTransactions())
          {  
-            // while( objNetwork.getInBufferStatus().equals("full") );     /* Alternatively, busy-wait until the network input buffer is available */
+             while( objNetwork.getInBufferStatus().equals("full") ){
+                 Client.yield();
+             }    /* Alternatively, busy-wait until the network input buffer is available */
 
              /***********************************************************************************************************************************************
               * TODO : YIELD WILL BE HERE^^^
@@ -179,7 +181,9 @@ public class Client extends Thread {
          
          while (i < getNumberOfTransactions())
          {     
-        	 // while( objNetwork.getOutBufferStatus().equals("empty"));  	/* Alternatively, busy-wait until the network output buffer is available */
+        	  while( objNetwork.getOutBufferStatus().equals("empty")) {
+                  Client.yield();
+              }  	/* Alternatively, busy-wait until the network output buffer is available */
 
              /***********************************************************************************************************************************************
               * TODO : YIELD WILL BE HERE^^^
@@ -221,7 +225,9 @@ public class Client extends Thread {
         {
             receiveClientStartTime = System.currentTimeMillis();
 
-            //sendtransactionmethod
+           for (int i=0; i < maxNbTransactions; i++){
+               receiveTransactions(transaction[i]);
+           }
 
             receiveClientEndTime = System.currentTimeMillis();
 
@@ -233,7 +239,7 @@ public class Client extends Thread {
         {
             sendClientStartTime = System.currentTimeMillis();
 
-            //receivetransaction method
+            sendTransactions();
 
             sendClientEndTime = System.currentTimeMillis();
 
