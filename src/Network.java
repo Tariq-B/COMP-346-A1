@@ -548,18 +548,27 @@ public class Network extends Thread{
     	{
             /***********************************************************************************************************************************************
              * TODO : implement the method Run() to execute the server thread
-             * *********************************************************************************************************************************************/
+             * ********************************************************************************
+             **************************************************************/
+            if (connect(clientIP)) {
+                for (int i=0; i < maxNbPackets; i++){
+                    receive(outGoingPacket[i]);
+                    send(inComingPacket[i]);
+                }
+            }
 
-            for (int i=0; i < maxNbPackets; i++){
-                transferOut(outGoingPacket[i]);
-                receive(outGoingPacket[i]);
-                transferIn(inComingPacket[i]);
-                send(inComingPacket[i]);
+            if (connect(serverIP)) {
+                for (int i=0; i < maxNbPackets; i++){
+                    transferOut(outGoingPacket[i]);
+                    transferIn(inComingPacket[i]);
+                }
+
             }
 
             Network.yield();
 
             if ((disconnect(getClientIP())) && disconnect(getServerIP())) {
+                System.out.println("Terminating network thread - Client disconnected, Server disconnected");
                 break;
             }
     	}

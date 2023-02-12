@@ -320,14 +320,19 @@ public class Server extends Thread{
 
     	System.out.println("\n DEBUG : Server.run() - starting server thread " + objNetwork.getServerConnectionStatus());
 
-        /*int i = 0;
+        int i = 0;
         while(i < getNumberOfAccounts()) {
             processTransactions(trans);
-        }*/
+        }
 
-        serverEndTime = System.currentTimeMillis();
+        if (!(objNetwork.connect(objNetwork.getServerIP())))
+        {
+            serverEndTime = System.currentTimeMillis();
 
-        System.out.println("\n Terminating server thread - " + " Running time " + (serverEndTime - serverStartTime) + " milliseconds");
+            System.out.println("\n Terminating server thread - " + " Running time " + (serverEndTime - serverStartTime) + " milliseconds");
+        }
+
+
            
     }
 }
