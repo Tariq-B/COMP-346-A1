@@ -27,10 +27,14 @@ public class Driver {
         /* Complete here the code for the main method ...*/
 
         // to not be zombie threads
+        try {
+        objServer.join();
+        client1.join();
+        client2.join();
+        objNetwork.join();}
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
 
-        //objServer.join();
-        //client1.join();
-        //client2.join();
-        //objNetwork.join();
     }
 }

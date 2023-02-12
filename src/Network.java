@@ -544,20 +544,18 @@ public class Network extends Thread{
     {	
     	System.out.println("\n DEBUG : Network.run() - starting network thread");
     	
-    	while (true)
+    	while (true) // to keep this thread alive
     	{
             /***********************************************************************************************************************************************
              * TODO : implement the method Run() to execute the server thread
              * *********************************************************************************************************************************************/
 
             for (int i=0; i < maxNbPackets; i++){
-                receive(inComingPacket[i]);
-                send(outGoingPacket[i]);
+                transferOut(outGoingPacket[i]);
+                receive(outGoingPacket[i]);
+                transferIn(inComingPacket[i]);
+                send(inComingPacket[i]);
             }
-
-
-            //send and receive incoming packets as the transaction
-
 
             Network.yield();
 

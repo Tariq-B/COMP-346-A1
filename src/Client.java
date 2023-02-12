@@ -216,18 +216,17 @@ public class Client extends Thread {
      */
     public void run()
     {   
-    	Transactions transact = new Transactions();
+    	Transactions transact = new Transactions(); // check if this was here
     	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
 
         // if send or if receive
+        // my client logic might be bad
 
         if (this.clientOperation.equals("receiving"))
         {
             receiveClientStartTime = System.currentTimeMillis();
 
-           for (int i=0; i < maxNbTransactions; i++){
-               receiveTransactions(transaction[i]);
-           }
+            receiveTransactions(transact);
 
             receiveClientEndTime = System.currentTimeMillis();
 

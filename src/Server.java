@@ -93,7 +93,7 @@ public class Server extends Thread{
       * @return maxNbAccounts
       * @param
       */
-      public int getmMxNbAccounts()
+      public int getMaxNbAccounts()
       {
           return maxNbAccounts;
       }
@@ -312,15 +312,18 @@ public class Server extends Thread{
     /* *********************************************************************************************************************************************
      * TODO : implement the method Run() to execute the server thread				 																*
      * *********************************************************************************************************************************************/
-    public void run()
+    public void run() //need to fix this, this is my issue, accounts are at 0
     {   Transactions trans = new Transactions();
     	long serverStartTime, serverEndTime;
 
         serverStartTime = System.currentTimeMillis();
 
     	System.out.println("\n DEBUG : Server.run() - starting server thread " + objNetwork.getServerConnectionStatus());
-    	
-    	processTransactions(transaction);
+
+        /*int i = 0;
+        while(i < getNumberOfAccounts()) {
+            processTransactions(trans);
+        }*/
 
         serverEndTime = System.currentTimeMillis();
 
