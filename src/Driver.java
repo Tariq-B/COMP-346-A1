@@ -1,4 +1,5 @@
-
+import java.io.*;
+import java.io.FileNotFoundException;
 
 /**
  *
@@ -11,6 +12,16 @@ public class Driver {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+
+        // print
+        try {
+        PrintStream testoutput = new PrintStream("TestOutput.txt");
+        System.setOut(testoutput);
+
+        } catch (FileNotFoundException e) {
+            System.err.println("File was not found");
+            System.exit(1);
+        }
         
     	Network objNetwork = new Network("network");             /* Activate the network */
         objNetwork.start();
