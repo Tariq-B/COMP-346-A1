@@ -16,17 +16,16 @@ public class Driver {
     	  * TODO : implement all the operations of main class   																					*
     	  ******************************************************************************************************************************************/
         
-    	Network objNetwork = new Network("network");            /* Activate the network */
+    	Network objNetwork = new Network("network");             /* Activate the network */
         objNetwork.start();
-        Server objServer = new Server();
+        Server objServer = new Server();                                /* Activate the server */
         objServer.start();
-        Client client1 = new Client("sending");
+        Client client1 = new Client("sending");                /* Activate the sending client */
         client1.start();
-        Client client2 = new Client("receiving");
+        Client client2 = new Client("receiving");              /* Activate the receiving client */
         client2.start();
-        /* Complete here the code for the main method ...*/
 
-        // to not be zombie threads
+        // to not be zombie threads (might not be needed)
         try {
         objServer.join();
         client1.join();

@@ -152,12 +152,8 @@ public class Client extends Thread {
          while (i < getNumberOfTransactions())
          {  
              while( objNetwork.getInBufferStatus().equals("full") ){
-                 Client.yield();
+                 Thread.yield();
              }    /* Alternatively, busy-wait until the network input buffer is available */
-
-             /***********************************************************************************************************************************************
-              * TODO : YIELD WILL BE HERE^^^
-              * *********************************************************************************************************************************************/
                                              	
             transaction[i].setTransactionStatus("sent");   /* Set current transaction status */
            
@@ -182,12 +178,8 @@ public class Client extends Thread {
          while (i < getNumberOfTransactions())
          {     
         	  while( objNetwork.getOutBufferStatus().equals("empty")) {
-                  Client.yield();
+                  Thread.yield();
               }  	/* Alternatively, busy-wait until the network output buffer is available */
-
-             /***********************************************************************************************************************************************
-              * TODO : YIELD WILL BE HERE^^^
-              * *********************************************************************************************************************************************/
                                                                         	
             objNetwork.receive(transact);                               	/* Receive updated transaction from the network buffer */
             
@@ -216,11 +208,9 @@ public class Client extends Thread {
      */
     public void run()
     {   
-    	Transactions transact = new Transactions(); // check if this was here
+    	Transactions transact = new Transactions();
     	long sendClientStartTime, sendClientEndTime, receiveClientStartTime, receiveClientEndTime;
 
-        // if send or if receive
-        // my client logic might be bad
 
         if (this.clientOperation.equals("receiving"))
         {
@@ -231,7 +221,8 @@ public class Client extends Thread {
             receiveClientEndTime = System.currentTimeMillis();
 
             System.out.println("\n Terminating client receiving thread - Running time " + (receiveClientEndTime - receiveClientStartTime) + " milliseconds");
-
+            objNetwork.disconnect(objNetwork.getClientIP());    //disconnect client
+            //return;
         }
 
         if (this.clientOperation.equals("sending"))
@@ -243,11 +234,6 @@ public class Client extends Thread {
             sendClientEndTime = System.currentTimeMillis();
 
             System.out.println("\n Terminating client sending thread - Running time " + (sendClientEndTime - sendClientStartTime) + " milliseconds");
-
         }
-
-            /***********************************************************************************************************************************************
-             * TODO : implement the method Run() to execute the client thread				 																*
-             * *********************************************************************************************************************************************/
     }
 }

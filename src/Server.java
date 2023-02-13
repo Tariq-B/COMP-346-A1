@@ -187,12 +187,9 @@ public class Server extends Thread{
          while ((!objNetwork.getClientConnectionStatus().equals("disconnected")))
          { 
         	  while( (objNetwork.getInBufferStatus().equals("empty"))) {
-                  Server.yield();
+                  System.out.println("\n The input buffer empty during the processing - Yielding the server ");
+                  Thread.yield();
               }  /* Alternatively, busy-wait until the network input buffer is available */
-
-             /***********************************************************************************************************************************************
-              * TODO : YIELD WILL BE HERE^^^
-              * *********************************************************************************************************************************************/
         	 
         	 if (!objNetwork.getInBufferStatus().equals("empty"))
         	 {
@@ -232,12 +229,8 @@ public class Server extends Thread{
         				 } 
         		        		 
         		  while( (objNetwork.getOutBufferStatus().equals("full"))) {
-                      Server.yield();
+                      Thread.yield();
                   } /* Alternatively,  busy-wait until the network output buffer is available */
-
-                 /***********************************************************************************************************************************************
-                  * TODO : YIELD WILL BE HERE^^^
-                  * *********************************************************************************************************************************************/
                                                            
         		 System.out.println("\n DEBUG : Server.processTransactions() - transferring out account " + trans.getAccountNumber());
         		 
@@ -312,7 +305,7 @@ public class Server extends Thread{
     /* *********************************************************************************************************************************************
      * TODO : implement the method Run() to execute the server thread				 																*
      * *********************************************************************************************************************************************/
-    public void run() //need to fix this, this is my issue, accounts are at 0
+    public void run()
     {   Transactions trans = new Transactions();
     	long serverStartTime, serverEndTime;
 
@@ -320,19 +313,13 @@ public class Server extends Thread{
 
     	System.out.println("\n DEBUG : Server.run() - starting server thread " + objNetwork.getServerConnectionStatus());
 
-        int i = 0;
-        while(i < getNumberOfAccounts()) {
-            processTransactions(trans);
-        }
+        //process the transactions
+        processTransactions(trans);
 
-        if (!(objNetwork.connect(objNetwork.getServerIP())))
-        {
-            serverEndTime = System.currentTimeMillis();
+        serverEndTime = System.currentTimeMillis();
 
-            System.out.println("\n Terminating server thread - " + " Running time " + (serverEndTime - serverStartTime) + " milliseconds");
-        }
-
-
+        System.out.println("\n Terminating server thread - " + " Running time " + (serverEndTime - serverStartTime) + " milliseconds");
+        objNetwork.disconnect(objNetwork.getServerIP()); //disconnect server
            
     }
 }
