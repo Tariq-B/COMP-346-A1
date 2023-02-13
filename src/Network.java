@@ -546,14 +546,13 @@ public class Network extends Thread{
     	
     	while (true) // to keep this thread alive
     	{
-
-            if ((disconnect(getClientIP())) && disconnect(getServerIP())) {
+            if(clientConnectionStatus.equals("disconnected") && serverConnectionStatus.equals("disconnected")){
                 System.out.println("Terminating network thread - Client disconnected, Server disconnected");
                 break;
             }
-            else {
                 Thread.yield();
-            }
+
     	}
+
     }
 }

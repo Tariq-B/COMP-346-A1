@@ -11,10 +11,6 @@ public class Driver {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-    	
-    	 /*******************************************************************************************************************************************
-    	  * TODO : implement all the operations of main class   																					*
-    	  ******************************************************************************************************************************************/
         
     	Network objNetwork = new Network("network");             /* Activate the network */
         objNetwork.start();
@@ -26,14 +22,14 @@ public class Driver {
         client2.start();
 
         // to not be zombie threads (might not be needed)
-        try {
+        /*try {
         objServer.join();
         client1.join();
         client2.join();
         objNetwork.join();}
         catch (Exception e) {
             System.out.println(e.getMessage());
-        }
+        }*/
 
     }
 }
