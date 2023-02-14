@@ -161,10 +161,10 @@
 
  The Account number is 12535, the Account Balance 750.0, and the message is done
 
- Terminating client sending thread - Running time 15 milliseconds
+ Terminating client sending thread - Running time 13 milliseconds
 
- Terminating client receiving thread - Running time 16 milliseconds
+ Terminating client receiving thread - Running time 14 milliseconds
 
- Terminating server thread -  Running time 27 milliseconds
+ Terminating server thread -  Running time 23 milliseconds
 
  Terminating network thread - Client disconnected, Server disconnected

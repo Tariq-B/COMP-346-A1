@@ -236,7 +236,7 @@ public class Server extends Thread{
                       Thread.yield();
                   } /* Alternatively,  busy-wait until the network output buffer is available */
 
-        		 System.out.println("\n DEBUG : Server.processTransactions() - transferring out account " + trans.getAccountNumber());
+        		 //System.out.println("\n DEBUG : Server.processTransactions() - transferring out account " + trans.getAccountNumber());
 
         		 objNetwork.transferOut(trans);                            		/* Transfer a completed transaction from the server to the network output buffer */
         		 setNumberOfTransactions( (getNumberOfTransactions() +  1) ); 	/* Count the number of transactions processed */
