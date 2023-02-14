@@ -1,0 +1,29 @@
+When the maxNumber of packets is 10, it's slightly slower. It has the following run times. It's between 23-27 ms for server, and 13-16 for client.
+
+client sending thread - Running time 15 milliseconds
+client receiving thread - Running time 16 milliseconds
+server thread -  Running time 27 milliseconds
+__
+client sending thread - Running time 13 milliseconds
+client receiving thread - Running time 14 milliseconds
+server thread -  Running time 23 milliseconds
+__
+client sending thread - Running time 14 milliseconds
+client receiving thread - Running time 14 milliseconds
+server thread -  Running time 24 milliseconds
+_____
+When the maxNumber of packets is 20, it's slightly faster. It has the following run times. It's between 19-23 ms for server, and 9-14 for client :
+
+client receiving thread - Running time 14 milliseconds
+client sending thread - Running time 12 milliseconds
+server thread -  Running time 23 milliseconds
+__
+client receiving thread - Running time 10 milliseconds
+client sending thread - Running time 9 milliseconds
+server thread -  Running time 19 milliseconds
+__
+client receiving thread - Running time 12 milliseconds
+client sending thread - Running time 11 milliseconds
+server thread -  Running time 22 milliseconds
+
+Sometimes, they slightly overlap, when we aren't lucky for example.
